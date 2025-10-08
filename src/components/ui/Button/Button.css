@@ -1,1 +1,14 @@
-.Button {}
+.Button {
+    border: none;
+    border-radius: 7px;
+    padding: 5px 10px;
+
+    font-weight: 900;
+    font-size: xx-large;
+    box-shadow: 15px 15px 25px grey;
+    margin-bottom: 27px;
+    margin-right: 20px;
+    background-color: aqua;
+    color: white;
+
+}
