@@ -6,14 +6,18 @@ interface IButtonProps {
   bgcolor?: string;
   children: string | React.ReactElement | Array<string | React.ReactElement>;
   style?: object;
+  clickAction?:(unArg:string)=>void;
 }
 
-const Button: React.FC<IButtonProps> = ({ type, bgcolor, children, style }) => {
+const Button: React.FC<IButtonProps> = ({ type, bgcolor, children, style,clickAction }) => {
   const buttonOnClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     console.log(event);
-  };
+    if(clickAction) {
+      clickAction("test");
+  }
+}
   return (
     <button
       type={type}
