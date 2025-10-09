@@ -1,0 +1,6 @@
+.FlexVGrow1 {
+    display: flex;
+}
+.FlexVGrow1>div:nth-child(1){
+    flex-grow: 1;
+}

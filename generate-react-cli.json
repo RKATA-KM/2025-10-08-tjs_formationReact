@@ -1,7 +1,7 @@
 {
-  "usesTypeScript": false,
+  "usesTypeScript": true,
   "usesStyledComponents": false,
-  "usesCssModule": false,
+  "usesCssModule": true,
   "cssPreprocessor": "css",
   "testLibrary": "Testing Library",
   "component": {
@@ -19,7 +19,19 @@
       "withStory": true,
       "withLazy": true,
       "customTemplates":{
-        "component":"grc_templates/uitemplate/TemplateName.js"
+        "component":"grc_templates/uitemplate/TemplateName.tsx"
+      }
+    },
+    "layoutcmp":{
+      "path": "src/components/layout",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"grc_templates/layoutTemplate/TemplateName/TemplateName.tsx",
+        "test":"grc_templates/layoutTemplate/TemplateName/TemplateName.test.tsx",
+        "story":"grc_templates/layoutTemplate/TemplateName/TemplateName.stories.tsx"
       }
     }
   }
