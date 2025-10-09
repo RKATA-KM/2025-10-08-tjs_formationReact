@@ -3,16 +3,17 @@ import Button from "../ui/Button/Button";
 import { useEffect, useState } from "react";
 
 const App = () => {
+
   const [counter, setCounter] = useState(-100);
   useEffect(() => {
     setCounter(0);
-   console.log('mount',counter)
+   //console.log('mount',counter)
   }, []);
   useEffect(() => {
-   console.log('useEffect->',counter)
+   //console.log('useEffect->',counter)
   }, [counter]);
   useEffect(() => {
-    console.log('all refresh mount and unmount');
+    //console.log('all refresh mount and unmount');
     
   });
 
@@ -23,11 +24,9 @@ const App = () => {
         <hr />
         <Button bgcolor="red" clickAction={()=>{
           setCounter(counter-1);
-          console.log(counter)
         }}>-1</Button>
         <Button bgcolor="green" clickAction={()=>{
           setCounter(counter+1);
-          console.log(counter)
         }}>+1</Button>
       </div>
     </>
