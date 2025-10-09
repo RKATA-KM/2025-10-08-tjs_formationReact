@@ -6,10 +6,9 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = () => (
-<div className={styles.header}>
+<header className={styles.header}>
   <h1>Header</h1>
-  <p>My supercool header</p>
-</div>
+</header>
 );
 
 export default Header;

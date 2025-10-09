@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./MemeForm.module.css";
 import Button from "../../ui/Button/Button";
 
-const MemeForm = () => {
+const MemeForm = ({meme, onMemeChange}) => {
+  const [current, setCurrent] = useState(meme);
+
+  const onNumberInputChange=(evt)=>{
+    const newState={...current};
+    newState[evt.target.name]=parseInt(evt.target.value);
+    setCurrent(newState);
+  }
+
+  const onStringInputChange=(evt)=>{
+    const newState={...current};
+    newState[evt.target.name]=evt.target.value;
+    setCurrent(newState);
+  }
+  const onCheckInputChange=(evt)=>{
+    const newState={...current};
+    newState[evt.target.name]=evt.target.checked;
+    setCurrent(newState);
+  }
+
   return (
     <div className={style.MemeForm}>
       {" "}
-      <form>
-        <label for="titre">
+      <form onSubmit={(evt)=>{
+        evt.preventDefault();
+        onMemeChange(current);
+      }} >
+        <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
         <br />
-        <input name="titre" id="titre" />
+        <input
+          name="titre"
+          id="titre"
+          value={current.titre}
+          onChange={onStringInputChange}
+        />
         <hr />
-        <label for="image">
+        <label htmlFor="image">
           <h2>Image</h2>
         </label>
         <br />
@@ -21,29 +48,55 @@ const MemeForm = () => {
           <option value="-1">No image</option>
         </select>
         <hr />
-        <label for="text">
+        <label htmlFor="text">
           <h2>texte</h2>
         </label>
         <br />
-        <input name="text" id="text" type="text" />
+        <input
+          name="text"
+          id="text"
+          type="text"
+          value={current.text}
+          onChange={onStringInputChange}
+        />
         <br />
-        <label for="x">
+        <label htmlFor="x">
           <h2 style={{ display: "inline" }}>x :</h2>
         </label>
-        <input className={style.smallNumber} name="x" id="x" type="number" />
-        <label for="y">
+        <input
+          className={style.smallNumber}
+          name="x"
+          id="x"
+          type="number"
+          value={current.x}
+          onChange={onNumberInputChange}
+        />
+        <label htmlFor="y">
           <h2 style={{ display: "inline" }}>y :</h2>
         </label>
-        <input className={style.smallNumber} name="y" id="y" type="number" />
+        <input
+          className={style.smallNumber}
+          name="y"
+          id="y"
+          type="number"
+          value={current.y}
+          onChange={onNumberInputChange}
+        />
         <hr />
         <br />
         <h2>Decorations</h2>
-        <label for="color">
+        <label htmlFor="color">
           <h2 style={{ display: "inline" }}>color :</h2>
         </label>
-        <input name="color" id="color" type="color" />
+        <input
+          name="color"
+          id="color"
+          type="color"
+          value={current.color}
+          onChange={onStringInputChange}
+        />
         <br />
-        <label for="fontSize">
+        <label htmlFor="fontSize">
           <h2 style={{ display: "inline" }}>font-size :</h2>
         </label>
         <input
@@ -52,10 +105,12 @@ const MemeForm = () => {
           id="fontSize"
           type="number"
           min="0"
+          value={current.fontSize}
+          onChange={onNumberInputChange}
         />
         px
         <br />
-        <label for="fontWeight">
+        <label htmlFor="fontWeight">
           <h2 style={{ display: "inline" }}>font-weight :</h2>
         </label>
         <input
@@ -66,23 +121,41 @@ const MemeForm = () => {
           min="100"
           step="100"
           max="900"
+          value={current.fontWeight}
+          onChange={onStringInputChange}
         />
         <br />
-        <input name="underline" id="underline" type="checkbox" />
+        <input
+          name="underline"
+          id="underline"
+          type="checkbox"
+          checked={current.underline}
+          onChange={onCheckInputChange}
+        />
         &nbsp;
-        <label for="underline">
+        <label htmlFor="underline">
           <h2 style={{ display: "inline" }}>underline</h2>
         </label>
         &nbsp;<h2 style={{ display: "inline" }}>/</h2>&nbsp;
-        <label for="italic">
+        <label htmlFor="italic">
           <h2 style={{ display: "inline" }}>italic</h2>
         </label>
         &nbsp;
-        <input name="italic" id="italic" type="checkbox" />
+        <input
+          name="italic"
+          id="italic"
+          type="checkbox"
+          checked={current.italic}
+          onChange={onCheckInputChange}
+        />
         <hr />
         <br />
-        <Button type="reset" bgcolor="red">Reset</Button>
-        <Button type="submit" bgcolor="skyblue">Save</Button>
+        <Button type="reset" bgcolor="red">
+          Reset
+        </Button>
+        <Button type="submit" bgcolor="skyblue">
+          Save
+        </Button>
       </form>
     </div>
   );

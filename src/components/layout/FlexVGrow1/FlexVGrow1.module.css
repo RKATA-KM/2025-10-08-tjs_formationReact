@@ -1,6 +1,8 @@
 .FlexVGrow1 {
     display: flex;
+    height: 100%;
 }
-.FlexVGrow1>div:nth-child(1){
+.FlexVGrow1>*:nth-child(1){
     flex-grow: 1;
+    max-height: 100%;
 }
