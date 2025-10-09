@@ -1,6 +1,7 @@
 import React from "react";
 import cmpstyle from "./Button.module.css";
 
+
 interface IButtonProps {
   type?: "button" | "reset" | "submit";
   bgcolor?: string;
@@ -10,12 +11,9 @@ interface IButtonProps {
 }
 
 const Button: React.FC<IButtonProps> = ({ type, bgcolor, children, style,clickAction }) => {
-  const buttonOnClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    console.log(event);
+  const buttonOnClick = () => {
     if(clickAction) {
-      clickAction("test");
+      clickAction("click sur le bouton");
   }
 }
   return (
