@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./MemeForm.module.css";
 import Button from "../../ui/Button/Button";
 
-const MemeForm = ({meme, onMemeChange}) => {
+const MemeForm = ({meme, onMemeChange,images}) => {
   const [current, setCurrent] = useState(meme);
 
   const onNumberInputChange=(evt)=>{
@@ -25,10 +25,12 @@ const MemeForm = ({meme, onMemeChange}) => {
   return (
     <div className={style.MemeForm}>
       {" "}
-      <form onSubmit={(evt)=>{
-        evt.preventDefault();
-        onMemeChange(current);
-      }} >
+      <form
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          onMemeChange(current);
+        }}
+      >
         <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
@@ -44,8 +46,18 @@ const MemeForm = ({meme, onMemeChange}) => {
           <h2>Image</h2>
         </label>
         <br />
-        <select name="image" id="image">
+        <select
+          name="imageId"
+          id="imageId"
+          value={current.imageId}
+          onChange={onNumberInputChange}
+        >
           <option value="-1">No image</option>
+          {images.map((img, i) => (
+            <option key={"option" + i} value={img.id}>
+              {img.name}
+            </option>
+          ))}
         </select>
         <hr />
         <label htmlFor="text">
