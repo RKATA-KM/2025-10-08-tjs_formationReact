@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Navbar.module.css';
+import { Link } from 'react-router';
 
 interface NavbarProps {
     children?:string|React.ReactElement|Array<React.ReactElement|string>
@@ -7,15 +8,11 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = () => (
   <>
-<div className={styles.topnav}>
-  <a className={styles.active} href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-</div>
-
+    <div className={styles.Navbar}>
+      <Link to="/">Home</Link>
+      <Link to="/editor">Editor</Link>
+    </div>
   </>
-
 );
 
 export default Navbar;
