@@ -8,8 +8,10 @@ import store from '../../store/store'
 import { Route,Routes } from "react-router";
 import Home from "../../pages/Home";
 import Editor from "../../pages/Editor";
+import Thumbnail from "../../pages/Thumbnail";
 
 //https://github.com/champix56/2025-10-08-tjspa
+//06.64.27.63.60
 
 const App = () => {
 
@@ -23,6 +25,8 @@ const App = () => {
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/editor" Component={Editor} />
+            <Route path="/editor/:id" Component={Editor} />
+            <Route path="/thumbnail" Component={Thumbnail} />
           </Routes>
         </FlexVGrow1>
         <Footer />

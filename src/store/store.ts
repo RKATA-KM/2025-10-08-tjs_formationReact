@@ -18,7 +18,7 @@ store.dispatch(update({...emptyMeme,x:50}))
 export default store;
 
 store.subscribe(()=>{
-    console.trace(store.getState())
+//    console.trace(store.getState())
 })
 store.dispatch(loadRessources())
 
