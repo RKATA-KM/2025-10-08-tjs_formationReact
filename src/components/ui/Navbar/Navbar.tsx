@@ -3,7 +3,7 @@ import style from "./Navbar.module.css";
 import { Link } from "react-router";
 import { Container, Nav, Navbar as Nvb } from "react-bootstrap";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
-const Navbar = (props) => {
+const Navbar = () => {
   return (
     <div className={style.Navbar} data-testid="Navbar">
       <Nvb bg="primary" data-bs-theme="dark">
