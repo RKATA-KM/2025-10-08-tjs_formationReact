@@ -1,13 +1,17 @@
 import React from 'react'
 import UnconnectedMemeForm from './MemeForm' 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import {update} from '../../../store/current'
 
 
 export const MemeForm = (props) => {
 
-    const images=useSelector(storeState=>storeState.ressources.images)
-    const meme = useSelector(storeState=>storeState.current.meme)
-    return <UnconnectedMemeForm {...props} images={images} meme={meme}/>;
+    const images=useSelector(storeState=>storeState.ressources.images);
+    const meme = useSelector(storeState=>storeState.current.meme);
+    const dispatch=useDispatch();
+    return <UnconnectedMemeForm {...props} images={images} meme={meme} onMemeChange={(newMeme)=>{
+        dispatch(update(newMeme))
+    }}/>;
 }
 
 
