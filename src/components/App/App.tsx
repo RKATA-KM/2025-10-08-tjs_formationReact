@@ -7,9 +7,13 @@ import FlexHGrow3 from "../layout/FlexHGrow3/FlexHGrow3";
 import FlexVGrow1 from "../layout/FlexVGrow1/FlexVGrow1";
 import Navbar from "../ui/Navbar/Navbar";
 import {REST_ADR,REST_RESSOURCES} from '../../config/constante'
+import store from '../../store/store'
 import {emptyMeme,type ImageInterface,type MemeInterface, MemeSVGViewer} from "orsys-tjs-meme";
 
 const App = () => {
+
+  console.log(store);
+
   const [counter, setCounter] = useState(-100);
   useEffect(() => {
     setCounter(0);
@@ -25,9 +29,12 @@ const App = () => {
   const [currentmeme, setCurrentMeme] = useState<MemeInterface>(emptyMeme);
   const [images, setImages] = useState<Array<ImageInterface>>([]);
   useEffect(() => {
-  fetch(`${REST_ADR}${REST_RESSOURCES.images}`).then(r=>r.json()).then(imgs=>setImages(imgs));
+  //fetch(`${REST_ADR}${REST_RESSOURCES.images}`).then(r=>r.json()).then(imgs=>setImages(imgs));
+    
+
+
+
   },[]);
-  console.log(images)
   return (
     <>
       <FlexHGrow3>
